@@ -51,9 +51,8 @@ router.put('/:id', validateUser, validateUserId, (req, res, next) => {
 
 router.delete('/:id', validateUserId, (req, res, next) => {
   User.remove(req.params.id)
-    .then((number) => {
-      number === 1 ? res.status(200).json(req.user)
-        : res.send(`${number} records were deleted`);
+    .then(() => {
+      res.status(200).json(req.user)
     })
     .catch(next);
   // RETURN THE FRESHLY DELETED USER OBJECT

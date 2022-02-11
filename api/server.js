@@ -7,7 +7,6 @@ server.use(express.json());
 const usersRouter = require('./users/users-router');
 
 server.use(logger);
-
 server.use('/api/users', usersRouter);
 
 server.get('/', (req, res) => {
